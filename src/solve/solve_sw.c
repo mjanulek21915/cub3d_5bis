@@ -1,8 +1,11 @@
 #include "cub3d.h"
 
-void					solve_sw(t_game *game)
+void					solve_sw_x(t_game *game, float f)
 {
-fprintf(stderr, "solve_sw\n");
-	solve_x(ceil(game->player->actor->pos_y), -1, game);
-	solve_y(ceil(game->player->actor->pos_x), -1, game);
+	solve_x(floor(game->player->actor->pos_y + f), 1, game, 0, -1);
+}
+
+void					solve_sw_y(t_game *game, float f)
+{
+	solve_y(floor(game->player->actor->pos_x - f), -1, game, 1, 0);
 }

@@ -9,25 +9,26 @@ void debug_print_map(t_game *game)
 
 fprintf(stderr, "------debug_print_map\n");
 
-fprintf(stderr, "list:\n");
-	while (i < game->map->grid->size)
-	{
-		if (game->map->grid->list[i])
-				fprintf(stderr, "%c", game->map->grid->list[i]->type);
-			else
-				fprintf(stderr, "0");
-			i++;
-fprintf(stderr, "<\n");	
-	}
+// fprintf(stderr, "list:\n");
+// 	while (i < game->map->grid->size)
+// 	{
+// 		if (game->map->grid->list[i])
+// 				fprintf(stderr, "%c", game->map->grid->list[i]->type);
+// 			else
+// 				fprintf(stderr, "0");
+// 			i++;
+// fprintf(stderr, "<\n");	
+// 	}
 
 
 fprintf(stderr, "grid:\n");
-	while (x < game->map->grid->size_x)
+	while (x < game->map->grid->size_x + 1)
 	{
-		while (y < game->map->grid->size_y)
+		while (y < game->map->grid->size_y + 1)
 		{
 			if (game->map->grid->blocks[x][y])
 				fprintf(stderr, "%c", game->map->grid->blocks[x][y]->type);
+				// fprintf(stderr, "z");
 			else
 				fprintf(stderr, "0");
 			y++;
