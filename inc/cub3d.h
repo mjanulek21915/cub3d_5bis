@@ -18,7 +18,7 @@
 #define START_POS_Y 2.5
 #define START_HDG 0
 
-#define MAP_PATH "debug_map_2"
+#define MAP_PATH "debug_map"
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -69,8 +69,8 @@ struct						s_job
 	char type;
 	int direction;
 	t_block *tgt;
-	float distance;
-	float ratio;
+	double distance;
+	double ratio;
 };
 
 struct						s_game
@@ -84,7 +84,7 @@ struct						s_game
 	int job_x;
 	int job_y;
 	int job_i;
-	float job_hdg;
+	double job_hdg;
 	int direction;
 
 	t_texture *textures[127];
@@ -92,38 +92,38 @@ struct						s_game
 	t_screen *screen;
 	t_player *player;
 	t_map *map;
-	unsigned long long int ***bitmap;
-	void (*solve_x[9])(t_game *game, float f);
-	void (*solve_y[9])(t_game *game, float f);
+	unsigned int ***bitmap;
+	void (*solve_x[9])(t_game *game, double f);
+	void (*solve_y[9])(t_game *game, double f);
 };
 
 
 struct						s_texture
 {
-	unsigned long long int ***grids[4];
-	unsigned long long int *bitmap_n;
-	unsigned long long int ***grid_n;
+	unsigned int ***grids[4];
+	unsigned int *bitmap_n;
+	unsigned int ***grid_n;
 	int grid_n_size_x;
 	int grid_n_size_y;
 	double mult_n_x;
 	double mult_n_y;
 
-	unsigned long long int *bitmap_s;
-	unsigned long long int ***grid_s;
+	unsigned int *bitmap_s;
+	unsigned int ***grid_s;
 	int grid_s_size_x;
 	int grid_s_size_y;
 	double mult_s_x;
 	double mult_s_y;
 
-	unsigned long long int *bitmap_e;
-	unsigned long long int ***grid_e;
+	unsigned int *bitmap_e;
+	unsigned int ***grid_e;
 	int grid_e_size_x;
 	int grid_e_size_y;
 	double mult_e_x;
 	double mult_e_y;
 
-	unsigned long long int *bitmap_w;
-	unsigned long long int ***grid_w;
+	unsigned int *bitmap_w;
+	unsigned int ***grid_w;
 	int grid_w_size_x;
 	int grid_w_size_y;
 	double mult_w_x;
@@ -168,8 +168,8 @@ struct						s_map
 	char *text;
 	char *path;
 	t_grid *grid;
-	float *angles_h;
-	float *angles_v;
+	double *angles_h;
+	double *angles_v;
 	int r_limit;
 };
 
@@ -215,27 +215,29 @@ void					actor_translate_down(t_actor *actor, double dst);
 void					actor_rotate_right(t_actor *actor, double angle);
 void					actor_rotate_left(t_actor *actor, double angle);
 
-void					solve_x(float tgt_y, float sign, t_game *game, int detection_offset_x, int detection_offset_y);
-void					solve_y(float tgt_x, float sign, t_game *game, int detection_offset_x, int detection_offset_y);
+void					solve_x(double tgt_y, double sign, t_game *game, int detection_offset_x, int detection_offset_y);
+void					solve_y(double tgt_x, double sign, t_game *game, int detection_offset_x, int detection_offset_y);
 
 void					screen_update(t_game *game);
+void					screen_update_clear_buffer(t_game *game);
 
-void					solve_en_x(t_game *game, float f);
-void					solve_en_y(t_game *game, float f);
-void					solve_es_x(t_game *game, float f);
-void					solve_es_y(t_game *game, float f);
-void					solve_ne_x(t_game *game, float f);
-void					solve_ne_y(t_game *game, float f);
-void					solve_nw_x(t_game *game, float f);
-void					solve_nw_y(t_game *game, float f);
-void					solve_se_x(t_game *game, float f);
-void					solve_se_y(t_game *game, float f);
-void					solve_sw_x(t_game *game, float f);
-void					solve_sw_y(t_game *game, float f);
-void					solve_wn_x(t_game *game, float f);
-void					solve_wn_y(t_game *game, float f);
-void					solve_ws_x(t_game *game, float f);
-void					solve_ws_y(t_game *game, float f);
+
+void					solve_en_x(t_game *game, double f);
+void					solve_en_y(t_game *game, double f);
+void					solve_es_x(t_game *game, double f);
+void					solve_es_y(t_game *game, double f);
+void					solve_ne_x(t_game *game, double f);
+void					solve_ne_y(t_game *game, double f);
+void					solve_nw_x(t_game *game, double f);
+void					solve_nw_y(t_game *game, double f);
+void					solve_se_x(t_game *game, double f);
+void					solve_se_y(t_game *game, double f);
+void					solve_sw_x(t_game *game, double f);
+void					solve_sw_y(t_game *game, double f);
+void					solve_wn_x(t_game *game, double f);
+void					solve_wn_y(t_game *game, double f);
+void					solve_ws_x(t_game *game, double f);
+void					solve_ws_y(t_game *game, double f);
 
 
 #endif

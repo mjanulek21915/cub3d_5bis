@@ -6,8 +6,8 @@ void					init_screen(t_game *game)
 {
 	game->screen->res_v = RES_V;
 	game->screen->res_h = RES_H;
-	game->screen->fov_v = FOV_V;
-	game->screen->fov_h = FOV_H;
+	game->screen->fov_v = FOV_V / 57.29578;
+	game->screen->fov_h = FOV_H / 57.29578;
 
 	if (!(game->screen->mlx = mlx_init()))
 		lib_do_exit("mlx_init fail");

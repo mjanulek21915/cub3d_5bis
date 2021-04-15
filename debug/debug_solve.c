@@ -2,12 +2,11 @@
 
 void debug_solve(t_game *game)
 {
-fprintf(stderr, "----debug_solve start : hdg %f\n", game->job_hdg);
 	int i;
 	int temp;
 	int direction;
-	float x;
-	float y;
+	double x;
+	double y;
 	t_job *temp_job;
 	int is_done = 1;
 
@@ -19,7 +18,8 @@ fprintf(stderr, "----debug_solve start : hdg %f\n", game->job_hdg);
 	game->job_tgt_x = &(game->jobs_hidden[16]);
 	game->job_tgt_y = &(game->jobs_hidden[17]);
 
-
+	x = 0;
+	y = 0;
 
 	game->job_x = 0;
 	game->job_y = 0;
@@ -38,10 +38,8 @@ fprintf(stderr, "----debug_solve start : hdg %f\n", game->job_hdg);
 
 	while (is_done)
 	{
-// fprintf(stderr, "------debug_solve : TEST INB4\n");
 		while (game->job_tgt_x->distance < game->job_tgt_y->distance && game->job_tgt_x->type != 'x')
 		{
-// fprintf(stderr, "    solve x loop : i : %d\n", i);
 			game->job_x = 0;
 			temp_job = game->jobs[i];
 			game->jobs[i] = game->job_tgt_x;
@@ -51,9 +49,6 @@ fprintf(stderr, "----debug_solve start : hdg %f\n", game->job_hdg);
 
 			if (game->jobs[i - 1]->type = '1')
 			{
-// fprintf(stderr, "x---debug_solve : return\n    distance : %f\n    type : %c\n", game->job_tgt_x->distance, game->job_tgt_x->tgt->type);
-
-// fprintf(stderr, "----debug_solve end\n");
 				return;
 			}
 
@@ -61,15 +56,12 @@ fprintf(stderr, "----debug_solve start : hdg %f\n", game->job_hdg);
 
 			while (!game->job_x)
 			{
-// fprintf(stderr, ">>>>>>loop");
 				game->solve_x[temp](game, x);
 				x = x + 1;
 			}
-// fprintf(stderr, "x---debug_solve\n    distance : %f\n    type : %c\n", game->job_tgt_x->distance, game->job_tgt_x->tgt->type);
 		}
 		while (game->job_tgt_x->distance >= game->job_tgt_y->distance && game->job_tgt_y->type != 'x')
 		{
-// fprintf(stderr, "    solve y loop : i : %d\n", i);
 			game->job_y = 0;
 			temp_job = game->jobs[i];
 			game->jobs[i] = game->job_tgt_y;
@@ -79,8 +71,6 @@ fprintf(stderr, "----debug_solve start : hdg %f\n", game->job_hdg);
 
 			if (game->jobs[i - 1]->type = '1')
 			{
-// fprintf(stderr, "y---debug_solve : return\n    distance : %f\n    type : %c\n", game->job_tgt_y->distance, game->job_tgt_y->tgt->type);
-// fprintf(stderr, "----debug_solve end\n");
 				return;
 			}
 
@@ -88,13 +78,11 @@ fprintf(stderr, "----debug_solve start : hdg %f\n", game->job_hdg);
 
 			while (!game->job_y)
 			{
-// fprintf(stderr, ">>>>>>loop");
 				game->solve_y[temp](game, y);
 				y = y + 1;
 			}
-// fprintf(stderr, "y---debug_solve\n    distance : %f\n    type : %c\n", game->job_tgt_y->distance, game->job_tgt_y->tgt->type);
 
 		}
 	}
-fprintf(stderr, "----debug_solve end\n");
+// fprintf(stderr, "----debug_solve end\n");
 }

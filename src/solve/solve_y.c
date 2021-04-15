@@ -1,13 +1,13 @@
 #include "cub3d.h"
 
-void					solve_y(float tgt_x, float sign, t_game *game, int detection_offset_x, int detection_offset_y)
+void					solve_y(double tgt_x, double sign, t_game *game, int detection_offset_x, int detection_offset_y)
 {
-fprintf(stderr, "------solve_y start\n");
-	float x;
-	float y;
-	float tgt_y;
-	float d_y;
-	float d_x;
+// fprintf(stderr, "------solve_y start\n");
+	double x;
+	double y;
+	double tgt_y;
+	double d_y;
+	double d_x;
 	int offset_x;
 	int offset_y;
 	int max_x;
@@ -19,6 +19,7 @@ fprintf(stderr, "------solve_y start\n");
 	max_x = game->map->grid->size_x + 1;
 	max_y = game->map->grid->size_y + 1;
 
+// fprintf(stderr, "solve_y : game->player->actor->pos_x : %f\n    game->player->actor->pos_y : %f\n    tgt_x : %f\n    sign : %f\n", game->player->actor->pos_x, game->player->actor->pos_y, tgt_x, sign);
 
 	d_x = tgt_x - x;
 	d_y = d_x * tan(PI12 - game->job_hdg) * sign;
@@ -39,5 +40,5 @@ fprintf(stderr, "------solve_y start\n");
 	}
 	// fprintf(stderr, "--------solve_y : TEST\n        tgt_x : %f\n        tgt_y : %f\n        offset_x: %d\n        offset_y: %d\n        type: %c\n        distance : %f\n", tgt_x, tgt_y, offset_x, offset_y, game->job_tgt_y->type, game->job_tgt_y->distance);
 
-fprintf(stderr, "------solve_y end\n");
+// fprintf(stderr, "------solve_y end\n");
 }
