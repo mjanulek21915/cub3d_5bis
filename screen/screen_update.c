@@ -18,5 +18,6 @@ fprintf(stderr, "--screen_update start\n");
 game->job_hdg = game->player->actor->hdg;
 fprintf(stderr, "  screen_update hdg : %f\n", game->job_hdg * 57.29578);
 debug_solve(game);
+fprintf(stderr, "  game->job_i : %d\n", game->job_i);
 fprintf(stderr, "--screen_update end\n");
 }

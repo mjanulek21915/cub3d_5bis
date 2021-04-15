@@ -7,5 +7,5 @@ void					solve_nw_x(t_game *game, float f)
 
 void					solve_nw_y(t_game *game, float f)
 {
-	solve_y(floor(game->player->actor->pos_x - f), 1, game, 0, 0);
+	solve_y(floor(game->player->actor->pos_x - f), 1, game, -1, 0);
 }

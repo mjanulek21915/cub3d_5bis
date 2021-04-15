@@ -36,8 +36,8 @@ fprintf(stderr, "------solve_y start\n");
 		game->job_tgt_y->tgt = game->map->grid->blocks[offset_x][offset_y];
 		game->job_tgt_y->type = game->map->grid->blocks[offset_x][offset_y]->type;
 		game->job_y = 1;
-	fprintf(stderr, "--------solve_y : TEST\n        tgt_x : %f\n        tgt_y : %f\n        offset_x: %d\n        offset_y: %d\n        type: %c\n        distance : %f\n", tgt_x, tgt_y, offset_x, offset_y, game->job_tgt_y->type, game->job_tgt_y->distance);
 	}
+	// fprintf(stderr, "--------solve_y : TEST\n        tgt_x : %f\n        tgt_y : %f\n        offset_x: %d\n        offset_y: %d\n        type: %c\n        distance : %f\n", tgt_x, tgt_y, offset_x, offset_y, game->job_tgt_y->type, game->job_tgt_y->distance);
 
 fprintf(stderr, "------solve_y end\n");
 }

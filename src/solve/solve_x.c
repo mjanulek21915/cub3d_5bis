@@ -29,6 +29,7 @@ fprintf(stderr, "------solve_x start\n");
 	offset_x = offset_x * (offset_x > 0) * (offset_x < max_x);
 	offset_y = offset_y * (offset_y > 0) * (offset_y < max_y);
 
+// fprintf(stderr, "--------solve_x : TEST\n        tgt_x : %f\n        tgt_y : %f\n        offset_x: %d\n        offset_y: %d\n        type: %c\n        distance : %f\n", tgt_x, tgt_y, offset_x, offset_y, game->job_tgt_x->type, game->job_tgt_x->distance);
 	if (game->map->grid->blocks[offset_x][offset_y])
 	{
 		game->job_tgt_x->distance = (fabs(d_y / cos(game->job_hdg)));
@@ -36,7 +37,6 @@ fprintf(stderr, "------solve_x start\n");
 		game->job_tgt_x->tgt = game->map->grid->blocks[offset_x][offset_y];
 		game->job_tgt_x->type = game->map->grid->blocks[offset_x][offset_y]->type;
 		game->job_x = 1;
-// fprintf(stderr, "--------solve_x : TEST\n        tgt_x : %f\n        tgt_y : %f\n        offset_x: %d\n        offset_y: %d\n        type: %c\n        distance : %f\n", tgt_x, tgt_y, offset_x, offset_y, game->job_tgt_x->type, game->job_tgt_x->distance);
 	}
 
 

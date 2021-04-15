@@ -7,5 +7,5 @@ void					solve_es_x(t_game *game, float f)
 
 void					solve_es_y(t_game *game, float f)
 {
-	solve_y(ceil(game->player->actor->pos_x + f), 1, game, 1, 0);
+	solve_y(ceil(game->player->actor->pos_x + f), 1, game, 0, 0);
 }
