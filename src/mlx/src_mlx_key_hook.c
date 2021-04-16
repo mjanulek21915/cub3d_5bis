@@ -27,6 +27,5 @@ fprintf(stderr, "key = %d\n", key);
 	fprintf (stderr, "pos_x : %f\npos_y : %f\ndeg : %f\n rads : %f\n\n", game->player->actor->pos_x, game->player->actor->pos_y, game->player->actor->hdg * 57.29578, game->player->actor->hdg);
 	fprintf(stderr, "direction : %d\ntemp : %d\n", direction, temp);
 	screen_update(game);
-	// debug_solve(game);
 	
 }

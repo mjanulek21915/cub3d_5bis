@@ -2,10 +2,10 @@
 
 void					solve_es_x(t_game *game, double f)
 {
-	solve_x(ceil(game->player->actor->pos_y + f), 1, game, 0, 0);
+	solve_x(ceil(game->player->actor->pos_y + f), 1, game, 0);
 }
 
 void					solve_es_y(t_game *game, double f)
 {
-	solve_y(ceil(game->player->actor->pos_x + f), 1, game, 0, 0);
+	solve_y(ceil(game->player->actor->pos_x + f), 1, game, 0);
 }

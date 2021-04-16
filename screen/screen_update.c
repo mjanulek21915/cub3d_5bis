@@ -16,10 +16,15 @@ screen_update_clear_buffer(game);
 		debug_draw(game, i);
 		i--;
 	}
+mlx_put_image_to_window(game->screen->mlx, game->screen->win, game->screen->img, 0, 0);
+
+
+
+// game->job_hdg = game->player->actor->hdg;
+// debug_solve(game);
+
 // fprintf(stderr, "  i:%d\n  hdg : %f\n", i, game->map->angles_h[i]);
-game->job_hdg = game->player->actor->hdg;
 // fprintf(stderr, "  screen_update hdg : %f\n", game->job_hdg * 57.29578);
 // fprintf(stderr, "  game->job_i : %d\n", game->job_i);
-mlx_put_image_to_window(game->screen->mlx, game->screen->win, game->screen->img, 0, 0);
 // fprintf(stderr, "--screen_update end\n");
 }

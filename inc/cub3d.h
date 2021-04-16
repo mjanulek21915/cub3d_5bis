@@ -215,8 +215,8 @@ void					actor_translate_down(t_actor *actor, double dst);
 void					actor_rotate_right(t_actor *actor, double angle);
 void					actor_rotate_left(t_actor *actor, double angle);
 
-void					solve_x(double tgt_y, double sign, t_game *game, int detection_offset_x, int detection_offset_y);
-void					solve_y(double tgt_x, double sign, t_game *game, int detection_offset_x, int detection_offset_y);
+void					solve_x(double tgt_y, double sign, t_game *game, int detection_offset);
+void					solve_y(double tgt_x, double sign, t_game *game, int detection_offset);
 
 void					screen_update(t_game *game);
 void					screen_update_clear_buffer(t_game *game);
