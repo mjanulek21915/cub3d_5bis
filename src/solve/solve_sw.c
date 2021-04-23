@@ -2,7 +2,7 @@
 
 void					solve_sw_x(t_game *game, double f)
 {
-	solve_x(floor(game->player->actor->pos_y + f), 1, game, -1);
+	solve_x(floor(game->player->actor->pos_y - f), -1, game, -1);
 }
 
 void					solve_sw_y(t_game *game, double f)

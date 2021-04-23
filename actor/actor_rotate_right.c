@@ -3,5 +3,5 @@
 void					actor_rotate_right(t_actor *actor, double angle)
 {
 
-	actor->hdg = actor->hdg + (angle/57.29578);
+	actor->hdg = actor->hdg - (angle/57.29578);
 }

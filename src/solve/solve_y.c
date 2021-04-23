@@ -20,7 +20,7 @@ void					solve_y(double tgt_x, double sign, t_game *game, int detection_offset)
 	max_y = game->map->grid->size_y + 1;
 
 
-	d_x = (tgt_x - x);
+	d_x = fabs(tgt_x - x);
 	d_y = d_x * tan(PI12 - game->job_hdg) * sign;
 	tgt_y = y + d_y;
 

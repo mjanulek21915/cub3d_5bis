@@ -22,7 +22,7 @@ void					solve_x(double tgt_y, double sign, t_game *game, int detection_offset)
 // fprintf(stderr, "solve_x : game->player->actor->pos_x : %f\n    game->player->actor->pos_y : %f\n    tgt_y : %f\n    sign : %f\n", game->player->actor->pos_x, game->player->actor->pos_y, tgt_y, sign);
 
 
-	d_y = tgt_y - y;
+	d_y = fabs(tgt_y - y);
 	d_x = d_y * tan(game->job_hdg) * sign;
 	tgt_x = x + d_x;
 
